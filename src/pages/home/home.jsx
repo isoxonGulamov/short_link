@@ -1,36 +1,36 @@
 import React from 'react'
 import './home.scss'
-import right from '../../image/right.jpg'
-import {QrReader} from 'react-qr-reader';
-import { useNavigate } from 'react-router-dom';
+import  QrReader  from 'react-qr-scanner';
 import linkImage from "../../image/pngwing.com.png";
 import secrutyImage from "../../image/secruty.png";
 import staticImage from "../../image/staticts.png"
 export const HomePage = () => {
-const [shortUrl,setShortUrl] = React.useState("")
-const navigate = useNavigate()
 
 let [data,setData] = React.useState([])
+const [open,setOpen] = React.useState(false)
   const handleSubmit = (e) => {
     e.preventDefault();
     let url = e.target.url.value;
+   if (url) {
+     fetch("http://35.228.133.96:4000/api/generate", {
+       method: "POST",
+       headers: {
+         'Content-Type': 'application/json',
+       },
+       body: JSON.stringify({ url }),
 
-    fetch("http://35.228.133.96:4000/api/generate",{
-      method:"POST",
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ url }),
+     }).then((res) => res.json())
+       .then((data) => {
+         console.log(data);
+         setData((p) => {
+           return [...p, data]
+         })
+       })
+   }else{
+    setOpen(true)
+   }
 
-    }).then((res)=>res.json())
-    .then((data)=>{
-      console.log(data);
-      setData((p)=>{
-        return [...p,data]
-      })
-    })
   }
-const [open,setOpen] = React.useState(false)
   const handleCopy = (url) => {
     navigator.clipboard.writeText(url);
     alert('Matn nusxalandi!');
@@ -85,6 +85,11 @@ const [open,setOpen] = React.useState(false)
                   </div>
                 </div>
               </form>
+              {
+                open ?  <span style={{color:"red"}}>Siz url ni kiritishingiz zarur !</span>
+                :
+                ""
+              }
               <p className='shorten-text'>
                 ShortURL is a free tool to shorten URLs and generate short links
                 URL shortener allows to create a shortened link making it easy to share
@@ -96,11 +101,12 @@ const [open,setOpen] = React.useState(false)
                   <div key={el.url} className='shorten-url-box'>
                     <p className='shortern-url-text'>{el.url}</p>
                     <img  onClick={()=>handleScan(el.url)}  src={el.qrcode} alt="" />
-                    <QrReader
+                    <QrReader 
+
                       delay={500}
                       onError={handleError}
                       onScan={handleScan}
-                      style={{ width: '100%' }}
+                      style={{ width: "80px",height:"80px" }}
                     />
 
                     <button className='copy-btn' onClick={() => handleCopy(el.url)}>Copy</button>

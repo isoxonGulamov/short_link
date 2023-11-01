@@ -15,26 +15,26 @@ export const Footer = () => {
               <div className='sb__footer-links_div'>
                 <h4>For Business</h4>
 
-                <a href="#">
+                <a href="/">
                   <p>Employer</p>
                 </a>
-                <a href="#">
+                <a href="/">
                   <p>Health Plan</p>
                 </a>
-                <a href="/#">
+                <a href="/">
                   <p>Individual</p>
                 </a>
               </div>
               <div className='sb__footer-links_div'>
                 <h4>Resources</h4>
 
-                <a href="#">
+                <a href="/">
                   <p>Resource center</p>
                 </a>
-                <a href="#">
+                <a href="/">
                   <p>Testimonials</p>
                 </a>
-                <a href="#">
+                <a href="/">
                   <p>STV</p>
                 </a>
               </div>
@@ -42,7 +42,7 @@ export const Footer = () => {
               <div className='sb__footer-links_div'>
                 <h4>Partners</h4>
 
-                <a href="#">
+                <a href="/">
                   <p>Swing Tech</p>
                 </a>
 
@@ -51,16 +51,16 @@ export const Footer = () => {
               <div className='sb__footer-links_div'>
                 <h4>Company</h4>
 
-                <a href="/#">
+                <a href="/">
                   <p>About</p>
                 </a>
-                <a href="/#">
+                <a href="/">
                   <p>Press</p>
                 </a>
-                <a href="/#">
+                <a href="/">
                   <p>Career</p>
                 </a>
-                <a href="#">
+                <a href="/">
                   <p>Contact</p>
                 </a>
 
@@ -90,22 +90,22 @@ export const Footer = () => {
                 </p>
               </div>
               <div className='sb__footer-bellow-links'>
-                <a href="#">
+                <a href="/">
                   <div>
                     <p>Terms & Conditions</p>
                   </div>
                 </a>
-                <a href="#">
+                <a href="/">
                   <div>
                     <p>Privacy</p>
                   </div>
                 </a>
-                <a href="#">
+                <a href="/">
                   <div>
                     <p>Security</p>
                   </div>
                 </a>
-                <a href="#">
+                <a href="/">
                   <div>
                     <p>Cookie Declaration</p>
                   </div>
