@@ -3,6 +3,9 @@ import './home.scss'
 import  QrReader  from 'react-qr-scanner';
 import linkImage from "../../image/pngwing.com.png";
 import secrutyImage from "../../image/secruty.png";
+import axios from 'axios';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
 import staticImage from "../../image/staticts.png"
 export const HomePage = () => {
 
@@ -31,9 +34,12 @@ const [open,setOpen] = React.useState(false)
    }
 
   }
+
+  console.log(data);
   const handleCopy = (url) => {
     navigator.clipboard.writeText(url);
-    alert('Matn nusxalandi!');
+    toast.success("Copied !🫡");
+
   };
 
 
@@ -44,11 +50,15 @@ const [open,setOpen] = React.useState(false)
 
 
   const [result, setResult] = React.useState('');
-
+  const [load,setLoad] = React.useState(false)
   const handleScan = (data) => {
     if (data) {
       setResult(data);
-      window.location.href = data;
+      setTimeout(() => {
+        setLoad(!load)
+        window.location.href = data;
+
+      }, 2000);
     }
 
     
@@ -58,11 +68,15 @@ const [open,setOpen] = React.useState(false)
     console.error(error);
   };
 
+
+
   return (
     <>
       <section className='Home-hero-section'>
         <div className='Hero_Box'>
           <div className="container">
+            <ToastContainer />
+
             <div className='shorten_box'>
               <form onSubmit={handleSubmit} data-v-052ac045="" noValidate="novalidate">
                 <div data-v-052ac045="" className="input-group input-group-lg shadow-lg">
@@ -96,18 +110,21 @@ const [open,setOpen] = React.useState(false)
               </p>
 
              {
+              
+
               data?.map((el)=>{
                 return  <div className='shortern-row'>
                   <div key={el.url} className='shorten-url-box'>
                     <p className='shortern-url-text'>{el.url}</p>
-                    <img  onClick={()=>handleScan(el.url)}  src={el.qrcode} alt="" />
-                    <QrReader 
+                    <img  style={{cursor:"pointer"}} onClick={()=>handleScan(el.url)}  src={el.qrcode} alt="" />
+                
+                    {
+                      load ?
+                        <div class="fingerprint scanning"></div>
+                        :
+                        ""
+                    }
 
-                      delay={500}
-                      onError={handleError}
-                      onScan={handleScan}
-                      style={{ width: "80px",height:"80px" }}
-                    />
 
                     <button className='copy-btn' onClick={() => handleCopy(el.url)}>Copy</button>
                
@@ -117,8 +134,9 @@ const [open,setOpen] = React.useState(false)
               })
              }
             </div>
+         
 
-
+      
 
             <div className='shorten-content'>
               <div className='shorten-inner-content'>
@@ -141,7 +159,9 @@ const [open,setOpen] = React.useState(false)
                 <img src={staticImage} alt="link-icon" />
                 <h3>Statistics</h3>
 
-                <p className='shorten-inner-content_text'>T.LY URL Shortener makes long links look cleaner and easier to share! Add your own Custom Domains to personalize your brand! Over 20 million monthly visitors trust T.LY. Easily create trackable QR Codes.
+                <p className='shorten-inner-content_text'>
+                  With over 30,000,000 links shortened and tracked over 600,000,000 link clicks, T.LY lets you know where users are coming from and is a click counter tool to track link analytics. Just add a + at the end of any short URL to see statistics.
+
 
                 </p>
               </div>

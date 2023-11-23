@@ -264,7 +264,8 @@ button:not(:disabled) {
 
 
 .shorten-content {
-  margin-top: 35px;
+  margin-top: 50px;
+  margin-bottom: 40px;
   display: flex;
   align-items: center;
   gap: 26px;
@@ -292,7 +293,7 @@ button:not(:disabled) {
 .shorten-inner-content {
   text-align: center;
   cursor: pointer;
-  padding: 8px;
+  padding: 16px;
   border-radius: 6px;
   transition-property: all;
   transition-duration: 0.6s;
@@ -301,6 +302,7 @@ button:not(:disabled) {
 .shorten-inner-content:hover{
   background-color: #aea79f;
   transition-duration: 0.6s;
+  transform: scale(1.1);
 }
 
 
@@ -362,4 +364,62 @@ button:not(:disabled) {
     margin-left: 5px;
     margin-bottom: 6px;
   }
+}
+
+
+#monitor {
+  margin: auto;
+  position: relative;
+  width: 40px;
+  height: 45px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#monitor .screen {
+  margin: auto;
+  margin-top: 10px;
+  width: 40px;
+  height: 45px;
+  background: transparent url("http://www.terminally-incoherent.com/blog/wp-content/uploads/2010/02/maketitle.jpg");
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.fingerprint {
+  width: 50px;
+  height: 50px;
+  border: solid 3px #7b878b;
+}
+.shorten-url-box{
+  position: relative;
+}
+.fingerprint.scanning::after {
+  content: '';
+  position: absolute;
+  width: 45px;
+  height: 8px;
+  background-image: linear-gradient(to bottom,
+      rgba(170, 184, 190, 0),
+      rgba(100, 117, 124, 0.8));
+  animation: scanning .8s linear infinite;
+}
+
+@keyframes scanning {
+  100% {
+    transform: translate(0, 40px);
+  }
+}
+
+.scan-box{
+  width: 400px;
+    height: 400px;
+  position: absolute;
+  top: 10%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  text-align: center;
+ 
+  background-color: #7b878b;
+
 }
