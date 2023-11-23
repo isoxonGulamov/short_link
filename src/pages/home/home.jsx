@@ -24,7 +24,6 @@ const [open,setOpen] = React.useState(false)
 
      }).then((res) => res.json())
        .then((data) => {
-         console.log(data);
          setData((p) => {
            return [...p, data]
          })
