@@ -126,48 +126,50 @@ export const HomePage = () => {
                 URL shortener allows to create a shortened link making it easy
                 to share
               </p>
-
-              {data?.map((el) => {
-                return (
-                  <div className="shortern-row">
-                    <div key={el.url} className="shorten-url-box">
-                      <button
-                        className="delete-btn"
-                        onClick={() => deleteItem(el.url)}
-                      >
-                        {" "}
-                        X
-                      </button>
-
-                      <div className="shorten-top">
-                        <p className="shortern-url-text">{el.url}</p>
-                        <img
-                          style={{ cursor: "pointer", textAlign: "start" }}
-                          onClick={() => handleScan(el.url)}
-                          src={el.qrcode}
-                          alt=""
-                        />
-                      </div>
-                      {load ? <div class="fingerprint scanning"></div> : ""}
-                      <div className="btn-group">
+                <div className="shortern_box-1">
+                {data?.map((el) => {
+                  return (
+                    <div className="shortern-row">
+                      <div key={el.url} className="shorten-url-box">
                         <button
-                          className="btn-4"
-                          onClick={() => handledDownload(el.qrcode)}
+                          className="delete-btn"
+                          onClick={() => deleteItem(el.url)}
                         >
-                          Download{" "}
+                          {" "}
+                          X
                         </button>
 
-                        <button
-                          className="copy-btn"
-                          onClick={() => handleCopy(el.url)}
-                        >
-                          Copy
-                        </button>
+                        <div className="shorten-top">
+                          <p className="shortern-url-text">{el.url}</p>
+                          <img
+                            style={{ cursor: "pointer", textAlign: "start" }}
+                            onClick={() => handleScan(el.url)}
+                            src={el.qrcode}
+                            alt=""
+                          />
+                        </div>
+                        {load ? <div class="fingerprint scanning"></div> : ""}
+                        <div className="btn-group">
+                          <button
+                            className="btn-4"
+                            onClick={() => handledDownload(el.qrcode)}
+                          >
+                            Download{" "}
+                          </button>
+
+                          <button
+                            className="copy-btn"
+                            onClick={() => handleCopy(el.url)}
+                          >
+                            Copy
+                          </button>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+
+                </div>
             </div>
 
             <div className="shorten-content">

@@ -10,11 +10,18 @@ text-align: start;
 }
 
 .btn-4{
-  border: 2px solid red;
+  border: 1px solid rgb(117, 108, 108);
   padding: 10px 25px;
   margin-left: 10px;
   background: none;
   border-radius: 10px;
+  transition-property: all;
+  transition-duration: 0.3s;
+  &:hover{
+    transform: scale(0.9);
+    transition-duration: 0.6s;
+
+  }
 
 }
 .form-short-url {
@@ -179,6 +186,8 @@ text-align: start;
   padding: 0.5rem 1rem;
 }
 
+
+
 .blog-post-wrapper .input-group-append .button,
 .blog-post-wrapper .input-group-prepend .button,
 .compare-post-wrapper .input-group-append .button,
@@ -329,8 +338,11 @@ button:not(:disabled) {
   border: none;
   font-size: 18px;
   margin-left: 9px;
+  margin-top: 5px;
 }
-
+.shorten-text{
+  margin-bottom: 16px;
+}
 .shortern-row{
   margin-top: 10px;
   display: flex;
@@ -363,7 +375,14 @@ button:not(:disabled) {
   align-items: center;
   justify-content: space-between;
 }
-
+.shortern-row{
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+padding: 10px;
+  margin: 0 auto;
+  margin-top: 16px;
+}
   .shorten-content{
     position: relative;
   }
@@ -396,6 +415,21 @@ button:not(:disabled) {
    .btn-primary span{
     font-size: 12px;
    }
+     .blog-post-wrapper .input-group-lg>.input-group-append>.button,
+     .blog-post-wrapper .input-group-lg>.input-group-prepend>.button,
+     .compare-post-wrapper .input-group-lg>.input-group-append>.button,
+     .compare-post-wrapper .input-group-lg>.input-group-prepend>.button,
+     .input-group-lg>.custom-select,
+     .input-group-lg>.form-control,
+     .input-group-lg>.input-group-append>.btn,
+     .input-group-lg>.input-group-append>.input-group-text,
+     .input-group-lg>.input-group-prepend>.btn,
+     .input-group-lg>.input-group-prepend>.input-group-text {
+       /* border-radius: 0.3rem; */
+       font-size: 1rem;
+       line-height: 1;
+       padding: 0.5rem 1rem;
+     }
     }
 .btn-4{
   order: 2;
@@ -404,6 +438,8 @@ button:not(:disabled) {
 }
 .copy-btn{
   order: 1;
+  position: relative;
+ left: 6%;
 }
 .btn-group{
   width: 100%;
@@ -422,12 +458,14 @@ button:not(:disabled) {
   .shorten-url-box img {
     width: 35px;
     height: 35px;
+    position: relative;
+    right: 7%;
     
   }
   .shortern-url-text{
     width: 260px;
     overflow: hidden;
-    margin-left: 5px;
+    margin-left: 20px;
     margin-bottom: 6px;
   }
 }
